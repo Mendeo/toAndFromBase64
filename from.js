@@ -1,7 +1,7 @@
 'use strict';
 const fs = require('fs');
 const filePath = process.argv[2];
-const file = fs.readFileSync(filePath).toString().split('\n');
+const file = fs.readFileSync(filePath).toString().replace(/\r/g, '').split('\n');
 console.log(file[0] + '\n' + file[1]);
 const md5_expected = file[2];
 const data = Buffer.from(file[3], 'base64');
