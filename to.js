@@ -6,7 +6,7 @@ const outPath = process.argv[3];
 const file = fs.readFileSync(filePath);
 const fileName = path.basename(filePath);
 const dateTime = new Date();
-const md5_str = Buffer.from(md5(file)).toString('base64');
+const md5_str = Buffer.from(md5(file)).toString('hex');
 
 const data = dateTime.toLocaleString() + '\n' + fileName + '\n' + md5_str.toString() + '\n' + file.toString('base64') + '\n';
 
