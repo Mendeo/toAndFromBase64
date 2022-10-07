@@ -4,7 +4,7 @@ const filePath = process.argv[2];
 const file = fs.readFileSync(filePath).toString().split('\n');
 console.log(file[0] + '\n' + file[1]);
 const md5_expected = file[2];
-const data = Buffer.from(file[3], 'hex');
+const data = Buffer.from(file[3], 'base64');
 const md5_fact = Buffer.from(md5(data)).toString('hex');
 if (md5_expected !== md5_fact)
 {
